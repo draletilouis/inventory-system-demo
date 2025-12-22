@@ -1,8 +1,25 @@
-# Inventory Management System
+# Inventory Management System - Demo
 
-> **DEMO VERSION** - This branch contains sanitized demo data for demonstration purposes only. All sensitive credentials have been removed or replaced with placeholder values.
+> **DEMO VERSION** - This is a demonstration repository with sanitized data. Try the live demo at: [https://inventory-system-demo.up.railway.app](https://inventory-system-demo.up.railway.app)
 
 A comprehensive inventory management system for spare parts companies, built with Node.js, Express, and PostgreSQL.
+
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/landing%20page.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin_dashboard.png)
+
+### Profit Analysis
+![Profit Analysis](screenshots/dashboard_profit_analysis.png)
+
+### Sales Management
+![Sales Management](screenshots/sales.png)
+
+### User Dashboard
+![User Dashboard](screenshots/user_dashboard.png)
 
 ## Features
 
@@ -33,8 +50,8 @@ A comprehensive inventory management system for spare parts companies, built wit
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/draletilouis/inventory-app-spareparts-company.git
-cd inventory-app-spareparts-company
+git clone https://github.com/draletilouis/inventory-system-demo.git
+cd inventory-system-demo
 ```
 
 2. Install dependencies:
@@ -45,11 +62,11 @@ npm install
 3. Set up PostgreSQL database:
 ```bash
 # Create a new PostgreSQL database
-createdb inventory_system
+createdb inventory
 
 # Or using psql
 psql -U postgres
-CREATE DATABASE inventory_system;
+CREATE DATABASE inventory;
 ```
 
 4. Configure environment variables:
@@ -58,10 +75,13 @@ cp .env.example .env
 ```
 
 5. Edit `.env` and update the following:
-   - `DATABASE_URL`: Your PostgreSQL connection string (e.g., `postgresql://username:password@localhost:5432/inventory_system`)
+   - `POSTGRES_HOST`: PostgreSQL host (default: localhost)
+   - `POSTGRES_PORT`: PostgreSQL port (default: 5432)
+   - `POSTGRES_DB`: Database name (default: inventory)
+   - `POSTGRES_USER`: PostgreSQL username (default: postgres)
+   - `POSTGRES_PASSWORD`: PostgreSQL password
    - `SESSION_SECRET`: Generate a strong random secret (use: `npm run generate-secret`)
-   - `ALLOWED_ORIGINS`: Add your production domain
-   - Other settings as needed
+   - For Railway deployment, use `DATABASE_URL` instead of individual variables
 
 6. Initialize the database:
 ```bash
@@ -153,8 +173,8 @@ sudo apt-get install -y nodejs
 
 3. Clone and setup:
 ```bash
-git clone https://github.com/draletilouis/inventory-app-spareparts-company.git
-cd inventory-app-spareparts-company
+git clone https://github.com/draletilouis/inventory-system-demo.git
+cd inventory-system-demo
 npm install
 ```
 
@@ -237,13 +257,17 @@ docker run -p 3000:3000 --env-file .env inventory-system
 |----------|-------------|---------|
 | `NODE_ENV` | Environment (development/production) | development |
 | `PORT` | Server port | 3000 |
-| `DATABASE_URL` | PostgreSQL connection string | (required) |
+| `POSTGRES_HOST` | PostgreSQL host | localhost |
+| `POSTGRES_PORT` | PostgreSQL port | 5432 |
+| `POSTGRES_DB` | PostgreSQL database name | inventory |
+| `POSTGRES_USER` | PostgreSQL username | postgres |
+| `POSTGRES_PASSWORD` | PostgreSQL password | (required) |
+| `POSTGRES_SSL` | Enable SSL for PostgreSQL | false |
+| `DATABASE_URL` | PostgreSQL connection string (Railway) | (optional) |
 | `SESSION_SECRET` | Secret key for sessions | (required) |
 | `BCRYPT_ROUNDS` | Bcrypt hashing rounds | 10 |
-| `ALLOWED_ORIGINS` | CORS allowed origins (comma-separated) | http://localhost:3000 |
 | `RATE_LIMIT_WINDOW_MS` | Rate limit window (ms) | 900000 |
-| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | 100 |
-| `LOG_LEVEL` | Logging level | info |
+| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | 10000 |
 
 ## Security Best Practices
 
@@ -262,18 +286,18 @@ For PostgreSQL database backups:
 
 ```bash
 # Manual backup
-pg_dump -U username inventory_system > backup.sql
+pg_dump -U postgres inventory > backup.sql
 
 # Backup with custom format (compressed)
-pg_dump -U username -Fc inventory_system > backup.dump
+pg_dump -U postgres -Fc inventory > backup.dump
 
 # Restore from backup
-psql -U username inventory_system < backup.sql
+psql -U postgres inventory < backup.sql
 # Or for custom format:
-pg_restore -U username -d inventory_system backup.dump
+pg_restore -U postgres -d inventory backup.dump
 
 # Automated backup (add to cron)
-0 0 * * * pg_dump -U username inventory_system > /path/to/backups/inventory-$(date +\%Y\%m\%d).sql
+0 0 * * * pg_dump -U postgres inventory > /path/to/backups/inventory-$(date +\%Y\%m\%d).sql
 ```
 
 ## API Endpoints
@@ -358,11 +382,18 @@ kill -9 <PID>
 
 This project is licensed under the MIT License.
 
+## Live Demo
+
+Visit the live demo: [https://inventory-system-demo.up.railway.app](https://inventory-system-demo.up.railway.app)
+
+Login with:
+- Admin: `admin` / `admin123`
+- User: `user` / `user123`
+
 ## Support
 
 For issues and questions:
-- GitHub Issues: https://github.com/draletilouis/inventory-app-spareparts-company/issues
-- Email: support@yourcompany.com
+- GitHub Issues: https://github.com/draletilouis/inventory-system-demo/issues
 
 ## Changelog
 
