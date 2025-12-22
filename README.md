@@ -384,7 +384,7 @@ This project is licensed under the MIT License.
 
 ## Live Demo
 
-Visit the live demo: [https://inventory-system-demo.up.railway.app](https://inventory-system-demo.up.railway.app)
+Visit the live demo: https://hrfamily-inventory-system-production.up.railway.app/)
 
 Login with:
 - Admin: `admin` / `admin123`
@@ -408,4 +408,3 @@ For issues and questions:
 
 ---
 
-**Made with ❤️ for HR Family Spare Parts**
