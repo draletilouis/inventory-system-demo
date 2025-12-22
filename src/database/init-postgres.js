@@ -27,8 +27,21 @@ async function initPostgres() {
                 password TEXT NOT NULL,
                 role TEXT NOT NULL,
                 name TEXT NOT NULL,
-                email TEXT
+                email TEXT,
+                mobile_number TEXT,
+                verified BOOLEAN DEFAULT TRUE
             )
+        `);
+
+        // Migration: Add missing columns if they don't exist (for existing databases)
+        await db.exec(`
+            ALTER TABLE users
+            ADD COLUMN IF NOT EXISTS mobile_number TEXT
+        `);
+
+        await db.exec(`
+            ALTER TABLE users
+            ADD COLUMN IF NOT EXISTS verified BOOLEAN DEFAULT TRUE
         `);
 
         await db.exec(`
