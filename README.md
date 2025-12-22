@@ -1,6 +1,6 @@
 # Inventory Management System - Demo
 
-> **DEMO VERSION** - This is a demonstration repository with sanitized data. Try the live demo at: [https://inventory-system-demo.up.railway.app](https://inventory-system-demo.up.railway.app)
+> **DEMO VERSION** - This is a demonstration repository with sanitized data. Try the live demo at: [https://hrfamily-inventory-system-production.up.railway.app/)
 
 A comprehensive inventory management system for spare parts companies, built with Node.js, Express, and PostgreSQL.
 
