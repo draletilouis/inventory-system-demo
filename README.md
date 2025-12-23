@@ -4,22 +4,53 @@
 
 A comprehensive inventory management system for spare parts companies, built with Node.js, Express, and PostgreSQL.
 
-## Screenshots
+## Application Screenshots
 
-### Login Page
+<div align="center">
+
+### Modern, Intuitive Login Interface
 ![Login Page](screenshots/landing%20page.png)
+*Clean and professional authentication with secure session management*
 
-### Admin Dashboard
+---
+
+### Comprehensive Admin Dashboard
 ![Admin Dashboard](screenshots/admin_dashboard.png)
+*Real-time business metrics and inventory overview at a glance*
 
-### Profit Analysis
+---
+
+### Advanced Profit Analysis
 ![Profit Analysis](screenshots/dashboard_profit_analysis.png)
+*Detailed financial insights with top-selling items and profit margins*
 
-### Sales Management
+---
+
+### Streamlined Sales Management
 ![Sales Management](screenshots/sales.png)
+*Efficient transaction processing with comprehensive sales history*
 
-### User Dashboard
+---
+
+### User-Friendly Interface
 ![User Dashboard](screenshots/user_dashboard.png)
+*Role-based dashboards optimized for different user levels*
+
+</div>
+
+## Demo Credentials
+
+**For Demo/Testing Purposes:**
+
+- **Admin Account:**
+  - Username: `admin`
+  - Password: `admin123`
+
+- **User Account:**
+  - Username: `user`
+  - Password: `user123`
+
+> ⚠️ **IMPORTANT FOR PRODUCTION:** Change these credentials immediately after deployment! Use strong passwords and update all environment variables with secure values.
 
 ## Features
 
